@@ -1,7 +1,9 @@
 import React from "react";
 
 function Book(props) {
-  const { book, onShelfChange } = props;
+  const { book, updateShelf } = props;
+
+  console.log(book);
 
   return (
       <div className="book">
@@ -11,12 +13,12 @@ function Book(props) {
             style={{
               width: 128,
               height: 193,
-              backgroundImage: `url(${book.imageLinks})`,
+              backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail})`,
             }}
           ></div>
           <div className="book-shelf-changer">
             <select
-              onChange={(event) => onShelfChange(book, event.target.value)}
+              onChange={(event) => updateShelf(book, event.target.value)}
               value={book.shelf || "none"}
             >
               <option value="move" disabled>
