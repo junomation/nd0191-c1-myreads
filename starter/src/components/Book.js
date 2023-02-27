@@ -1,9 +1,7 @@
 import React from "react";
 
 function Book(props) {
-  const { book, updateShelf } = props;
-
-  console.log(book);
+  const { book, onShelfChange } = props;
 
   return (
       <div className="book">
@@ -18,7 +16,7 @@ function Book(props) {
           ></div>
           <div className="book-shelf-changer">
             <select
-              onChange={(event) => updateShelf(book, event.target.value)}
+              onChange={(event) => onShelfChange(book, event.target.value)}
               value={book.shelf || "none"}
             >
               <option value="move" disabled>
